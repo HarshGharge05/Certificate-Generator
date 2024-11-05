@@ -17,7 +17,7 @@ import com.opencsv.CSVReader;
 
 public class App 
 {
-	public static void generateCertificate(String templatePath, String saveOutput, String id, String name, String domain) throws IOException {
+	public static void generateCertificate(String templatePath, String saveOutput, String id, String name, String domain, String startDate, String endDate) throws IOException {
 		
 		BufferedImage templateImage = ImageIO.read(new File(templatePath));
 		
@@ -31,12 +31,14 @@ public class App
 		
 		// setting font and color
 		g2d.setFont(new Font("Serif", Font.BOLD, 50));
-		g2d.setColor(Color.blue);
+		g2d.setColor(Color.black);
 		
 		// setting position 
-		g2d.drawString(todaysDate, (float) 191.842519685, (float) 413.54330709);
-		g2d.drawString(name, (float) 773.79527559, (float) 759.43307087);
-		g2d.drawString(domain, (float) 1372.15748031, (float) 958.5511811);
+//		g2d.drawString(todaysDate, (float) 191.842519685, (float) 413.54330709);
+		g2d.drawString(name, (float) 692.80629921, (float) 583.31338583);
+		g2d.drawString(domain, (float) 705.95905512, (float) 750.8992126);
+		g2d.drawString(startDate, (float)648.50708661, (float)855.97795276);
+		g2d.drawString(endDate, (float)948.50708661, (float)855.97795276);
 		
 		g2d.dispose();
 		
@@ -49,8 +51,8 @@ public class App
 	
     public static void main( String[] args )
     {
-        String csvFilePath = "F:\\C-DAC Mumbai Internship\\5th week\\CSV_file\\StudentList.csv";
-        String templatePath = "F:\\C-DAC Mumbai Internship\\5th week\\Certificate_Template\\template.png";
+        String csvFilePath = "F:\\C-DAC Mumbai Internship\\5th week\\CSV_file\\internData.csv";
+        String templatePath = "F:\\C-DAC Mumbai Internship\\5th week\\Certificate_Template\\certificateTemplate.png";
         String saveOutput = "F:\\C-DAC Mumbai Internship\\5th week\\Generated_Certificates";
         
         try {
@@ -70,13 +72,17 @@ public class App
                 }
         		
         		String id = record[0];
-//        		System.out.println(record[0]);
+        		System.out.println(record[0]);
         		String name = record[1];
-//        		System.out.println(record[1]);
+        		System.out.println(record[1]);
         		String domain = record[2];
-//        		System.out.println(record[2]);
+        		System.out.println(record[2]);
+        		String startDate = record[3];
+        		System.out.println(record[3]);
+        		String endDate = record[4];
+        		System.out.println(record[4]);
         		
-        		generateCertificate(templatePath, saveOutput, id, name, domain);
+        		generateCertificate(templatePath, saveOutput, id, name, domain, startDate, endDate);
         	}
         	
 		} catch (Exception e) {
