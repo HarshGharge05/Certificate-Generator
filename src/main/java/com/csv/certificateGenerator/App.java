@@ -35,14 +35,15 @@ public class App
 		
 		// setting position 
 //		g2d.drawString(todaysDate, (float) 191.842519685, (float) 413.54330709);
+		g2d.drawString(id, (float) 1531.93070866, (float) 70.223622047);
 		g2d.drawString(name, (float) 692.80629921, (float) 583.31338583);
 		g2d.drawString(domain, (float) 705.95905512, (float) 750.8992126);
 		g2d.drawString(startDate, (float)648.50708661, (float)855.97795276);
-		g2d.drawString(endDate, (float)948.50708661, (float)855.97795276);
+		g2d.drawString(endDate, (float)975.50708661, (float)855.97795276);
 		
 		g2d.dispose();
 		
-		File outputFile = new File(saveOutput+"Certificate_"+id+".png");
+		File outputFile = new File(saveOutput+"Certificate_"+name+".png");
 		ImageIO.write(templateImage, "png", outputFile);
 		
 		System.out.println("Certificate generated for "+name);
