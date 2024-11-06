@@ -17,7 +17,7 @@ import com.opencsv.CSVReader;
 
 public class App 
 {
-	public static void generateCertificate(String templatePath, String saveOutput, String id, String name, String domain, String startDate, String endDate) throws IOException {
+	public static void generateCertificate(String templatePath, String saveOutput, String id, String name, String domain, String startDate, String endDate, String level) throws IOException {
 		
 		BufferedImage templateImage = ImageIO.read(new File(templatePath));
 		
@@ -40,6 +40,7 @@ public class App
 		g2d.drawString(domain, (float) 705.95905512, (float) 750.8992126);
 		g2d.drawString(startDate, (float)648.50708661, (float)855.97795276);
 		g2d.drawString(endDate, (float)975.50708661, (float)855.97795276);
+		g2d.drawString(level, (float)1632.5007874, (float)674.75275591);
 		
 		g2d.dispose();
 		
@@ -82,8 +83,9 @@ public class App
         		System.out.println(record[3]);
         		String endDate = record[4];
         		System.out.println(record[4]);
+        		String level = record[5];
         		
-        		generateCertificate(templatePath, saveOutput, id, name, domain, startDate, endDate);
+        		generateCertificate(templatePath, saveOutput, id, name, domain, startDate, endDate, level);
         	}
         	
 		} catch (Exception e) {
